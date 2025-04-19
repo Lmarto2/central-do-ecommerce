@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Gerenciar Produtos - Central do E-commerce</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 0;
+    }
+
+    .produtos-container {
+      background-color: white;
+      padding: 40px;
+      margin: 20px auto;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      width: 100%;
+      max-width: 800px;
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+
+    table, th, td {
+      border: 1px solid #ddd;
+    }
+
+    th, td {
+      padding: 10px;
+      text-align: center;
+    }
+
+    button {
+      padding: 10px 20px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="produtos-container">
+    <h2>Gerenciar Produtos</h2>
+
+    <!-- Formulário para adicionar um produto -->
+    <form id="formAdicionarProduto">
+      <input type="text" id="nomeProduto" placeholder="Nome do Produto" required>
+      <input type="number" id="precoProduto" placeholder="Preço" required>
+      <button type="submit">Adicionar Produto</button>
+    </form>
+
+    <h3>Lista de Produtos</h3>
+    <table id="tabelaProdutos">
+      <tr>
+        <th>Nome</th>
+        <th>Preço</th>
+        <th>Ações</th>
+      </tr>
+    </table>
+
+    <button onclick="location.href='dashboard.html'">Voltar para o Dashboard</button>
+  </div>
+
+  <script>
+    const produtos = [];
+
+    // Função para adicionar um produto
+    document.getElementById("formAdicionarProduto").addEventListener("submit", function(event) {
+      event.preventDefault(); // Evita o recarregamento da página
+
+      const nome = document.getElementById("nomeProduto").value;
+      const preco = document.getElementById("precoProduto").value;
+
+      // Adiciona o produto ao array
+      produtos.push({ nome, preco });
+
+      // Atualiza a tabela de produtos
+      atualizarTabela();
+
+      // Limpa o formulário
+      document.getElementById("nomeProduto").value = '';
+      document.getElementById("precoProduto").value = '';
+    });
+
+    // Função para

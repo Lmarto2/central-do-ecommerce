@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Detalhes do Pedido 001</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+    }
+
+    h1 {
+      color: #007bff;
+    }
+
+    .btn-voltar {
+      background-color: #dc3545;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-bottom: 20px;
+    }
+
+    .btn-voltar:hover {
+      background-color: #c82333;
+    }
+
+    .details-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+
+    .details-table, th, td {
+      border: 1px solid #ddd;
+    }
+
+    th, td {
+      padding: 10px;
+      text-align: left;
+    }
+
+    .btn-imprimir {
+      background-color: #28a745;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .btn-imprimir:hover {
+      background-color: #218838;
+    }
+
+    /* Estilo para links das lojas */
+    .loja-link {
+      color: #007bff;
+      text-decoration: none;
+    }
+
+    .loja-link:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Botão para voltar à lista de pedidos -->
+  <button class="btn-voltar" onclick="window.location.href='pedidos.html'">Voltar para Lista de Pedidos</button>
+
+  <h1>Detalhes do Pedido 001</h1>
+
+  <table class="details-table">
+    <tr>
+      <th>ID do Pedido</th>
+      <td>001</td>
+    </tr>
+    <tr>
+      <th>Cliente</th>
+      <td>João Silva</td>
+    </tr>
+    <tr>
+      <th>Status</th>
+      <td>Em processamento</td>
+    </tr>
+    <tr>
+      <th>Loja</th>
+      <td><a href="https://www.shopee.com.br" class="loja-link" target="_blank">🛒 Shopee</a></td>
+    </tr>
+    <tr>
+      <th>Data do Pedido</th>
+      <td>10/04/2025</td>
+    </tr>
+    <tr>
+      <th>Valor Total</th>
+      <td>R$ 850,00</td>
+    </tr>
+    <tr>
+      <th>Forma de Pagamento</th>
+      <td>Cartão de Crédito</td>
+    </tr>
+    <tr>
+      <th>Produtos Comprados</th>
+      <td>
+        <ul>
+          <li>Poltrona Ergonomica - Cor: Azul - Quantidade: 1 - R$ 350,00</li>
+          <li>Cadeira de Escritório - Cor: Preto - Quantidade: 1 - R$ 500,00</li>
+        </ul>
+      </td>
+    </tr>
+  </table>
+
+  <!-- Botão para imprimir o pedido -->
+  <button class="btn-imprimir" onclick="window.print()">Imprimir Pedido</button>
+
+</body>
+</html>

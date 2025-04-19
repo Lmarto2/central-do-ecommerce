@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Lista de Pedidos</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+    }
+
+    h1 {
+      color: #007bff;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+
+    table, th, td {
+      border: 1px solid #ddd;
+    }
+
+    th, td {
+      padding: 10px;
+      text-align: left;
+    }
+
+    .btn-detalhes {
+      background-color: #007bff;
+      color: white;
+      padding: 5px 10px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .btn-detalhes:hover {
+      background-color: #0056b3;
+    }
+
+    .btn-voltar {
+      background-color: #dc3545;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-bottom: 20px;
+    }
+
+    .btn-voltar:hover {
+      background-color: #c82333;
+    }
+  </style>
+</head>
+<body>
+
+  <button class="btn-voltar" onclick="window.close()">Voltar para Dashboard</button>
+
+  <h1>Lista de Pedidos</h1>
+
+  <table>
+    <thead>
+      <tr>
+        <th>ID do Pedido</th>
+        <th>Cliente</th>
+        <th>Status</th>
+        <th>Loja</th>
+        <th>Ações</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>001</td>
+        <td>João Silva</td>
+        <td>Em processamento</td>
+        <td>🛒 Shopee</td>
+        <td><button class="btn-detalhes" onclick="window.location.href='detalhes-pedido-001.html'">Ver Detalhes</button></td>
+      </tr>
+      <tr>
+        <td>002</td>
+        <td>Ana Souza</td>
+        <td>Enviado</td>
+        <td>🧃 Mercado Livre</td>
+        <td><button class="btn-detalhes" onclick="window.location.href='detalhes-pedido-002.html'">Ver Detalhes</button></td>
+      </tr>
+      <tr>
+        <td>003</td>
+        <td>Lucas Prado</td>
+        <td>Entregue</td>
+        <td>🧢 Nuvemshop</td>
+        <td><button class="btn-detalhes" onclick="window.location.href='detalhes-pedido-003.html'">Ver Detalhes</button></td>
+      </tr>
+    </tbody>
+  </table>
+
+</body>
+</html>

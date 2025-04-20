@@ -4,33 +4,18 @@ const express = require('express');
 const axios = require('axios');
 const app = express();
 
-// Verificar se as variáveis de ambiente estão definidas
-const APP_ID = process.env.CLIENT_ID;
+// Definir as variáveis da Nuvemshop
+const APP_ID = process.env.APP_ID;
 const CLIENT_SECRET = process.env.CLIENT_SECRET;
-const REDIRECT_URI = process.env.REDIRECT_URI;
-
-if (!APP_ID || !CLIENT_SECRET || !REDIRECT_URI) {
-  console.error('Faltam variáveis de ambiente. Verifique seu arquivo .env');
-  process.exit(1); // Encerra o processo se faltar alguma variável
-}
 
 // Rota raiz
 app.get('/', (req, res) => {
   res.send('Bem-vindo à Central do E-commerce!'); // Mensagem para indicar que o servidor está funcionando
 });
 
-// Rota de autenticação (inicia o processo de OAuth)
-app.get('/auth', (req, res) => {
-  const authUrl = `https://www.nuvemshop.com.br/admin/oauth/authorize?client_id=${APP_ID}&redirect_uri=${REDIRECT_URI}&scope=read_orders&response_type=code`;
-  res.redirect(authUrl);
-});
-
 // Verifica a rota de callback (autenticação)
 app.get('/auth/callback', async (req, res) => {
   const code = req.query.code; // Código retornado na URL de callback
-  if (!code) {
-    return res.status(400).send('Erro: código de autenticação não encontrado.');
-  }
 
   try {
     // Fazer a troca do código por um token de acesso
@@ -47,7 +32,7 @@ app.get('/auth/callback', async (req, res) => {
     res.send(`Token de acesso: ${accessToken}`);
   } catch (error) {
     console.error('Erro ao obter token:', error);
-    res.status(500).send('Erro ao obter o token de acesso. Tente novamente mais tarde.');
+    res.status(500).send('Erro ao obter o token de acesso.');
   }
 });
 

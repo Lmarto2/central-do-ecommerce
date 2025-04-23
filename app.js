@@ -37,9 +37,7 @@ app.get('/auth/callback', async (req, res) => {
 });
 
 // Iniciar o servidor
-const PORT = process.env.PORT || 8080;  // Aqui está a alteração para garantir que a porta correta seja usada
+const PORT = process.env.PORT || 8080; // Alterando para 8080, que é a porta padrão do Railway
 app.listen(PORT, () => {
   console.log(`Servidor rodando na porta ${PORT}`);
 });
-
-

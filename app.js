@@ -21,7 +21,13 @@ app.get('/', (req, res) => {
 app.get('/auth/callback', async (req, res) => {
   const code = req.query.code; // Código retornado na URL de callback
 
+  if (!code) {
+    return res.status(400).send('Código de autorização não encontrado.');
+  }
+
   try {
+    console.log('Código de autorização:', code); // Log do código para verificar se está sendo enviado corretamente
+
     // Fazer a troca do código por um token de acesso com headers e corpo corretos
     const response = await axios.post(
       'https://api.nuvemshop.com.br/v1/oauth/token',
@@ -44,6 +50,13 @@ app.get('/auth/callback', async (req, res) => {
     res.send(`Token de acesso: ${accessToken}`);
   } catch (error) {
     console.error('Erro ao obter token:', error.response ? error.response.data : error.message);
+
+    // Log para verificar o erro retornado pelo servidor
+    if (error.response) {
+      console.log('Detalhes do erro:', error.response.data);
+      console.log('Código de erro:', error.response.status);
+    }
+
     res.status(500).send('Erro ao obter o token de acesso.');
   }
 });
